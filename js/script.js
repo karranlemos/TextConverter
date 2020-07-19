@@ -1,11 +1,12 @@
 window.addEventListener('load', function() {
     var converter = new TextConverter()
+    var customSelectors = CustomSelect.getAllCustomSelect()
 })
 
 class TextConverter {
 
     constructor() {
-        this.options = document.getElementById('options-converter')
+        this.options = document.querySelector('#options-converter select')
         this.input = document.getElementById('input-converter')
         this.output = document.getElementById('output-converter')
         this.button = document.getElementById('execute-converter')
@@ -20,6 +21,7 @@ class TextConverter {
         var commands = {
             'uppercase': this.convert_uppercase,
             'lowercase': this.convert_lowercase,
+            'alternate-case': this.convert_alternate_case,
             'leetspeak': this.convert_leetspeak
         }
 
@@ -43,6 +45,18 @@ class TextConverter {
         return text.toLowerCase()
     }
 
+    convert_alternate_case(text) {
+        var out_text = ''
+        for (let i = 0; i < text.length; i++) {
+            let c = text.charAt(i)
+            if (i%2 === 0)
+                out_text += c.toUpperCase()
+            else
+                out_text += c.toLowerCase()
+        }
+        return out_text
+    }
+
     convert_leetspeak(text) {
         var alphabets = {
             a: "4",
@@ -64,6 +78,81 @@ class TextConverter {
         }
 
         return out_text
+    }
+}
+
+class CustomSelect {
+
+    static errorMessages = {
+        'constructor': 'Invalid format.'
+    }
+
+    constructor(container) {
+        this.container = container
+        this.hiddenSelect = container.querySelector('select')
+        this.frontSelect = container.querySelector('div.select')
+
+        if (!this.container || !this.hiddenSelect || !this.frontSelect)
+            throw CustomSelect.errorMessages['constructor']
+        
+        this.frontHead = this.frontSelect.querySelector('div.select-head')
+        this.frontOptions = this.frontSelect.querySelector('div.select-options')
+
+        if (!this.frontHead || !this.frontOptions)
+            throw CustomSelect.errorMessages['constructor']
+        
+        this.hiddenOptionsIndexes = this.extractHiddenOptionsIndexes()
+        
+        this.fillFrontSelector()
+    }
+
+    fillFrontSelector() {
+        for (let i = 0; i < this.hiddenSelect.length; i++) {
+            let hiddenOptionElement = this.hiddenSelect.options[i]
+            let value = hiddenOptionElement.value
+            let frontText = hiddenOptionElement.textContent
+            
+            let frontOptionElement = document.createElement('button')
+            frontOptionElement.classList.add('select-option')
+            frontOptionElement.innerText = frontText
+            frontOptionElement.addEventListener('click', function() {
+                this.changeHiddenSelect(value)
+            }.bind(this))
+
+            this.frontSelect.appendChild(frontOptionElement)
+        }
+    }
+
+    changeHiddenSelect(value) {
+        if (value in this.hiddenOptionsIndexes)
+            this.hiddenSelect.selectedIndex = this.hiddenOptionsIndexes[value]
+    }
+
+    
+    
+    extractHiddenOptionsIndexes() {
+        var hiddenOptionsIndexes = {}
+        for (let i = 0; i < this.hiddenSelect.length; i++) {
+            let hiddenOptionElement = this.hiddenSelect.options[i]
+            let value = hiddenOptionElement.value
+            hiddenOptionsIndexes[value] = i
+        }
+        return hiddenOptionsIndexes
+    }
+
+
+    static getAllCustomSelect() {
+        var customSelectsObj = document.querySelectorAll('div.custom-select-container')
+        var customSelects = []
+        for (let customSelect of customSelectsObj) {
+            try {
+                customSelects.push(new CustomSelect(customSelect))
+            }
+            catch (err) {
+                continue
+            }
+        }
+        return customSelects
     }
 }
 

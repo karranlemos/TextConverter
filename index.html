@@ -22,11 +22,20 @@
         <section id="converter" class="show">
           <div class="container-converter">
             <div class="field-block">
-              <select id="options-converter">
-                <option value="uppercase">Caixa alta</option>
-                <option value="lowercase">Caixa baixa</option>
-                <option value="leetspeak">Leetspeak</option>
-              </select>
+              <div id="options-converter" class="custom-select-container">
+                <select>
+                  <option value="uppercase">Caixa alta</option>
+                  <option value="lowercase">Caixa baixa</option>
+                  <option value="alternate-case">Alternar caixa</option>
+                  <option value="leetspeak">Leetspeak</option>
+                </select>
+                <div class="select">
+                  <div class="select-head"></div>
+                  <div class="select-options">
+                    <!--<button class="select-option"></button>-->
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="field-block">
               <textarea id="input-converter" class="converter-textarea"></textarea>

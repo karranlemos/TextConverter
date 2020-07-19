@@ -1,6 +1,14 @@
 :root {
     --bg-color: rgb(224, 224, 224);
     --main-bg-color: rgb(245, 245, 245);
+    --textarea-bg-color: rgb(225, 225, 225);
+    --textarea-bg-color-focus: rgb(215, 215, 215);
+    --execute-button-bg-color: rgb(0, 60, 0);
+    --execute-button-bg-color-active: rgb(0, 40, 0);
+    --bg-color-option-menu: rgb(50, 50, 50);
+    --bg-color-option-menu-hover: rgb(60, 60, 60);
+    --bg-color-option-menu-click: rgb(65, 65, 65);
+    --color-option-menu: rgb(255, 255, 255);
 }
 
 body, html {
@@ -9,7 +17,18 @@ body, html {
 
 body {
     background-color: var(--bg-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    outline: none;
+}
+
+
 
 div#container {
     
@@ -61,20 +80,63 @@ section#about.show {
     display: block
 }
 
+
+div#options-converter {
+    width: 100%;
+}
+
+div#options-converter select {
+    display: none;
+}
+
+button.select-option {
+    display: block;
+    width: 100%;
+
+    border-width: 0;
+    cursor: pointer;
+    padding: 10px;
+
+    background-color: var(--bg-color-option-menu);
+    color: var(--color-option-menu)
+}
+
+button.select-option:hover {
+    background-color: var(--bg-color-option-menu-hover)
+}
+
+button.select-option:active {
+    background-color: var(--bg-color-option-menu-click)
+}
+
 textarea.converter-textarea {
     width: 49%;
     height: 100px;
+    resize: none;
+    border-width: 0;
+    background-color: var(--textarea-bg-color);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+textarea.converter-textarea:focus {
+    outline: none;
+    background-color: var(--textarea-bg-color-focus);
 }
 
 button#execute-converter {
+    background-color: var(--execute-button-bg-color);
+    color: white;
+    
     width: 100%;
     border-width: 0;
-    background-color: rgb(0, 27, 0);
-    color: white;
-    padding: 6px;
+    border-radius: 0 0 7px 7px;
+    padding: 15px;
+    
     font-weight: bold;
+    cursor: pointer;
 }
 
-button#execute-converter:hover {
-    cursor: pointer;
+button#execute-converter:active {
+    background-color: var(--execute-button-bg-color-active);
 }
