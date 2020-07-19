@@ -34,7 +34,11 @@ button {
 
 div#container {
     max-width: 1000px;
+    min-height: 100vh;
     margin: 0 auto;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-content: stretch; 
 }
 
 nav#navbar {
@@ -53,6 +57,7 @@ nav#navbar ul li {
 div.container-converter {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-auto-rows: auto;
     grid-gap: 10px;
 }
 
@@ -72,21 +77,28 @@ div#container-content {
 main#main {
     padding: 20px;
     background-color: var(--main-bg-color);
+    height: 100%;
+    
 }
 
-section#converter {
+main#main section {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+main#main section#converter {
     display: none;
 }
 
-section#converter.show {
+main#main section#converter.show {
     display: block
 }
 
-section#about {
+main#main section#about {
     display: none;
 }
 
-section#about.show {
+main#main section#about.show {
     display: block
 }
 
@@ -139,7 +151,9 @@ button.select-option:active {
 
 textarea.converter-textarea {
     width: 100%;
-    height: 100px;
+    min-height: 200px;
+    max-height: 250px;
+    height: 100%;
     resize: none;
     border-width: 0;
     background-color: var(--textarea-bg-color);
