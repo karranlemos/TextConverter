@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js"></script>
+  <title>Converter de texto</title>
+</head>
+<body>
+  <div id="container">
+    <nav id="navbar">
+      <ul>
+        <li>Conversor</li>
+        <li>Sobre</li>
+      </ul>
+    </nav>
+
+    <div id="container-content">
+      <main id="main">
+    
+        <section id="converter" class="show">
+          <div class="container-converter">
+            <div class="field-block">
+              <select id="options-converter">
+                <option value="uppercase">Caixa alta</option>
+                <option value="lowercase">Caixa baixa</option>
+                <option value="leetspeak">Leetspeak</option>
+              </select>
+            </div>
+            <div class="field-block">
+              <textarea id="input-converter" class="converter-textarea"></textarea>
+              <textarea id="output-converter" class="converter-textarea" readonly></textarea>
+            </div>
+            <div class="field-block">
+              <button type="button" id="execute-converter">Converter</button>
+            </div>
+  
+          </div>
+        </section>
+    
+        <section id="about">
+          <p>adasdasd</p>
+        </section>
+    
+      </main>
+    </div>
+  </div>
+</body>
+</html>
