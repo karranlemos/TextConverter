@@ -22,6 +22,7 @@ class TextConverter {
             'uppercase': this.convert_uppercase,
             'lowercase': this.convert_lowercase,
             'alternate-case': this.convert_alternate_case,
+            'spaced-text': this.convert_spaced_text,
             'leetspeak': this.convert_leetspeak
         }
 
@@ -54,6 +55,15 @@ class TextConverter {
             else
                 out_text += c.toLowerCase()
         }
+        return out_text
+    }
+
+    convert_spaced_text(text) {
+        var out_text = ''
+        for (let i = 0, n = text.length-1; i < n; i++) {
+            out_text += text.charAt(i)+' '
+        }
+        out_text += text.charAt(text.length-1)
         return out_text
     }
 
@@ -95,10 +105,15 @@ class CustomSelect {
         if (!this.container || !this.hiddenSelect || !this.frontSelect)
             throw CustomSelect.errorMessages['constructor']
         
-        this.frontHead = this.frontSelect.querySelector('div.select-head')
+        this.frontHead = this.frontSelect.querySelector('button.select-head')
         this.frontOptions = this.frontSelect.querySelector('div.select-options')
 
         if (!this.frontHead || !this.frontOptions)
+            throw CustomSelect.errorMessages['constructor']
+
+        this.frontHeadText = this.frontHead.querySelector('span.select-head-text')
+        
+        if (!this.frontHeadText)
             throw CustomSelect.errorMessages['constructor']
         
         this.hiddenOptionsIndexes = this.extractHiddenOptionsIndexes()
@@ -116,16 +131,28 @@ class CustomSelect {
             frontOptionElement.classList.add('select-option')
             frontOptionElement.innerText = frontText
             frontOptionElement.addEventListener('click', function() {
-                this.changeHiddenSelect(value)
+                this.changeSelectedItem(value)
             }.bind(this))
 
             this.frontSelect.appendChild(frontOptionElement)
         }
+
+        this.changeSelectedItem('uppercase')
+    }
+
+    changeSelectedItem(value) {
+        this.changeHiddenSelect(value)
+        this.changeFrontHead(value)
     }
 
     changeHiddenSelect(value) {
         if (value in this.hiddenOptionsIndexes)
             this.hiddenSelect.selectedIndex = this.hiddenOptionsIndexes[value]
+    }
+
+    changeFrontHead(value) {
+        if (value in this.hiddenOptionsIndexes)
+            this.frontHeadText.innerText = this.hiddenSelect.options[this.hiddenOptionsIndexes[value]].innerText
     }
 
     
