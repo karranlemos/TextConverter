@@ -111,6 +111,8 @@ class CustomSelect {
         if (!this.frontHead || !this.frontOptions)
             throw CustomSelect.errorMessages['constructor']
 
+        this.frontHead.addEventListener('click', this.toggleOptions.bind(this))
+
         this.frontHeadText = this.frontHead.querySelector('span.select-head-text')
         
         if (!this.frontHeadText)
@@ -134,7 +136,7 @@ class CustomSelect {
                 this.changeSelectedItem(value)
             }.bind(this))
 
-            this.frontSelect.appendChild(frontOptionElement)
+            this.frontOptions.appendChild(frontOptionElement)
         }
 
         this.changeSelectedItem('uppercase')
@@ -143,6 +145,7 @@ class CustomSelect {
     changeSelectedItem(value) {
         this.changeHiddenSelect(value)
         this.changeFrontHead(value)
+        this.closeOptions()
     }
 
     changeHiddenSelect(value) {
@@ -153,6 +156,14 @@ class CustomSelect {
     changeFrontHead(value) {
         if (value in this.hiddenOptionsIndexes)
             this.frontHeadText.innerText = this.hiddenSelect.options[this.hiddenOptionsIndexes[value]].innerText
+    }
+
+    toggleOptions() {
+        this.frontOptions.classList.toggle('show')
+    }
+
+    closeOptions() {
+        this.frontOptions.classList.remove('show')
     }
 
     

@@ -112,15 +112,17 @@ footer {
 
 
 
-div#options-converter {
+div#options-converter.custom-select-container {
     width: 100%;
+    position: relative;
 }
 
-div#options-converter select {
+div.custom-select-container select {
     display: none;
 }
 
 button.select-head {
+    position: relative;
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
@@ -128,14 +130,32 @@ button.select-head {
     cursor: pointer;
     background-color: black;
     color: white;
+    text-align: center;
 }
 
 span.select-head-text {
+    
+}
 
+span.select-head-icon {
+    position: absolute;
+    right: 10px;
 }
 
 span.select-head-icon::after {
     content: '\25BC';
+}
+
+div.custom-select-container div.select-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+div.custom-select-container div.select-options.show {
+    display: block;
 }
 
 button.select-option {
