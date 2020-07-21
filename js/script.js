@@ -124,6 +124,8 @@ class CustomSelect {
         this.hiddenOptionsIndexes = this.extractHiddenOptionsIndexes()
         
         this.fillFrontSelector()
+
+        window.addEventListener('click', this.closeOptionsIfClickedOutsideSelect.bind(this))
     }
 
     fillFrontSelector() {
@@ -169,8 +171,14 @@ class CustomSelect {
         this.frontOptions.classList.remove('show')
     }
 
-    
-    
+
+
+    closeOptionsIfClickedOutsideSelect(e) {
+        var selectHeadClicked = this.frontSelect.contains(e.target)
+        if (!selectHeadClicked)
+            this.closeOptions()
+    }
+
     extractHiddenOptionsIndexes() {
         var hiddenOptionsIndexes = {}
         for (let i = 0; i < this.hiddenSelect.length; i++) {
@@ -180,6 +188,7 @@ class CustomSelect {
         }
         return hiddenOptionsIndexes
     }
+
 
 
     static getAllCustomSelect() {
