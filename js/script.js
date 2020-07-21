@@ -204,6 +204,51 @@ class CustomSelect {
 }
 
 
+class MenuPages {
+
+    constructor() {
+        this.currentPageId = ''
+        this.pageSections = {}
+
+        var menuButtons = document.querySelectorAll('#navbar div.central-navbar button')
+        if (!menuButtons)
+            throw '"#navbar div.central-navbar" doesn\'t exist'
+        var pageSectionsNodes = document.querySelectorAll('main#main>section.page')
+        
+        for (let node of pageSectionsNodes) {
+            let id = node.id
+            if (id !== '')
+                this.pageSections[id] = node
+        }
+
+        for (let menuButton of menuButtons) {
+            let pageId = menuButton.getAttribute('data-page-id')
+            if (!this.pageSections.hasOwnProperty(pageId))
+                continue
+            menuButton.addEventListener('click', function() {
+                this.changePages(pageId)
+            }.bind(this))
+        }
+
+        var firstPage = Object.keys(this.pageSections)[0];
+        this.changePages(firstPage)
+    }
+
+    changePages(pageId) {
+        if (this.currentPageId === pageId)
+            return
+        if (!this.pageSections.hasOwnProperty(pageId))
+            throw 'Page doesn\'t exist'
+        
+        if (this.pageSections.hasOwnProperty(this.currentPageId))
+            this.pageSections[this.currentPageId].classList.remove('show')
+        this.pageSections[pageId].classList.add('show')
+
+        this.currentPageId = pageId
+    }
+}
+
+
 
 class Helpers {
     constructor() {
@@ -234,6 +279,8 @@ class Helpers {
     }
 }
 
+
+
 var section = {
     converter: undefined,
     customSelectors: undefined
@@ -242,4 +289,5 @@ var section = {
 window.addEventListener('load', function() {
     section.converter = new TextConverter()
     section.customSelectors = CustomSelect.getAllCustomSelect()
+    section.menuPages = new MenuPages();
 })
