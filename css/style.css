@@ -1,8 +1,16 @@
 :root {
     --bg-color: rgb(224, 224, 224);
+
+    --bg-color-nav-menu: rgb(35, 35, 35);
+    --bg-color-nav-menu-hover: rgb(40, 40, 40);
+    --bg-color-nav-menu-focus: rgb(50, 50, 50);
+    --color-nav-menu: white;
+
     --main-bg-color: rgb(245, 245, 245);
+
     --textarea-bg-color: rgb(225, 225, 225);
     --textarea-bg-color-focus: rgb(215, 215, 215);
+    
     --execute-button-bg-color: rgb(0, 60, 0);
     --execute-button-bg-color-active: rgb(0, 40, 0);
     --bg-color-select-head: rgb(35, 35, 35);
@@ -10,7 +18,8 @@
     --bg-color-option-menu-hover: rgb(60, 60, 60);
     --bg-color-option-menu-click: rgb(65, 65, 65);
     --color-option-menu: rgb(255, 255, 255);
-    --bg-color-footer: rgb(60, 60, 60);
+    
+    --bg-color-footer: rgb(35, 35, 35);
     --color-footer: white;
 }
 
@@ -39,21 +48,31 @@ div#container {
     min-height: 100vh;
     margin: 0 auto;
     display: grid;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr auto;
     justify-content: stretch; 
 }
 
-nav#navbar {
-    display: none;
+div#navbar nav {
+    display: flex;
+    justify-content: start;
+    padding: 0px 20px;
+    height: 60px;
+    box-sizing: border-box;
+    background-color: var(--bg-color-nav-menu);
+    cursor: default;
 }
 
-nav#navbar ul {
-    list-style-type: none;
-    padding-left: 0
+div#navbar nav button {
+    height: 100%;
+    padding: 0 20px;
+    background-color: transparent;
+    color: var(--color-nav-menu);
+    cursor: pointer;
+    font-weight: bold;
 }
 
-nav#navbar ul li {
-    display: inline-block;
+div#navbar nav button:hover {
+    background-color: var(--bg-color-nav-menu-hover);
 }
 
 div.container-converter {
@@ -80,7 +99,7 @@ main#main {
     padding: 20px;
     background-color: var(--main-bg-color);
     height: 100%;
-    
+    box-sizing: border-box;    
 }
 
 main#main section {

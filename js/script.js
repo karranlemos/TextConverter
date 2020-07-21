@@ -1,8 +1,3 @@
-window.addEventListener('load', function() {
-    var converter = new TextConverter()
-    var customSelectors = CustomSelect.getAllCustomSelect()
-})
-
 class TextConverter {
 
     constructor() {
@@ -87,12 +82,14 @@ class TextConverter {
         var out_text = ''
         for (let i = 0; i < text.length; i++) {
             let c = text.charAt(i)
-            out_text += alphabets[replaceDiacritics(c).toLowerCase()] || c
+            out_text += alphabets[Helpers.replaceDiacritics(c).toLowerCase()] || c
         }
 
         return out_text
     }
 }
+
+
 
 class CustomSelect {
 
@@ -206,25 +203,43 @@ class CustomSelect {
     }
 }
 
-// https://stackoverflow.com/a/863865
-function replaceDiacritics(s)
-{
-    var diacritics =[
-        /[\300-\306]/g, /[\340-\346]/g,  // A, a
-        /[\310-\313]/g, /[\350-\353]/g,  // E, e
-        /[\314-\317]/g, /[\354-\357]/g,  // I, i
-        /[\322-\330]/g, /[\362-\370]/g,  // O, o
-        /[\331-\334]/g, /[\371-\374]/g,  // U, u
-        /[\321]/g, /[\361]/g, // N, n
-        /[\307]/g, /[\347]/g, // C, c
-    ];
 
-    var chars = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
 
-    for (var i = 0; i < diacritics.length; i++)
-    {
-        s = s.replace(diacritics[i],chars[i]);
+class Helpers {
+    constructor() {
+        throw 'static class'
     }
 
-    return s
+    // https://stackoverflow.com/a/863865
+    static replaceDiacritics(s)
+    {
+        var diacritics =[
+            /[\300-\306]/g, /[\340-\346]/g,  // A, a
+            /[\310-\313]/g, /[\350-\353]/g,  // E, e
+            /[\314-\317]/g, /[\354-\357]/g,  // I, i
+            /[\322-\330]/g, /[\362-\370]/g,  // O, o
+            /[\331-\334]/g, /[\371-\374]/g,  // U, u
+            /[\321]/g, /[\361]/g, // N, n
+            /[\307]/g, /[\347]/g, // C, c
+        ];
+    
+        var chars = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+    
+        for (var i = 0; i < diacritics.length; i++)
+        {
+            s = s.replace(diacritics[i],chars[i]);
+        }
+    
+        return s
+    }
 }
+
+var section = {
+    converter: undefined,
+    customSelectors: undefined
+}
+
+window.addEventListener('load', function() {
+    section.converter = new TextConverter()
+    section.customSelectors = CustomSelect.getAllCustomSelect()
+})
