@@ -61,7 +61,10 @@ class TextConverter {
     convert_spaced_text(text) {
         var out_text = ''
         for (let i = 0, n = text.length-1; i < n; i++) {
-            out_text += text.charAt(i)+' '
+            let c = text.charAt(i)
+            out_text += c
+            if (c !== '\n')
+                out_text += ' '
         }
         out_text += text.charAt(text.length-1)
         return out_text
