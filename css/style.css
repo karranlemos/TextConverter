@@ -118,8 +118,11 @@ div#navbar nav button.current-page {
 div.container-converter {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-auto-rows: auto;
+    grid-template-rows: auto 1fr auto;
     grid-gap: 10px;
+
+    max-height: 500px;
+    height: 100%;
 }
 
 div.field-block {
@@ -235,7 +238,6 @@ button.select-option:active {
 textarea.converter-textarea {
     width: 100%;
     min-height: 200px;
-    max-height: 250px;
     height: 100%;
     resize: none;
     border-width: 0;
