@@ -17,6 +17,7 @@ class TextConverter {
             'uppercase': this.convert_uppercase,
             'lowercase': this.convert_lowercase,
             'alternate-case': this.convert_alternate_case,
+            'capitalized-text': this.convert_capitalized_text,
             'spaced-text': this.convert_spaced_text,
             'leetspeak': this.convert_leetspeak
         }
@@ -49,6 +50,24 @@ class TextConverter {
                 out_text += c.toUpperCase()
             else
                 out_text += c.toLowerCase()
+        }
+        return out_text
+    }
+
+    convert_capitalized_text(text) {
+        var out_text = ''
+        var capitalize_next = true
+        for (let i = 0; i < text.length; i++) {
+            let c = text.charAt(i)
+            if (c === '.' || c === '\n') {
+                capitalize_next = true
+            }
+            else if (capitalize_next && !Helpers.hasWhiteSpace(c)) {
+                if (Helpers.isCapitalizable(c))
+                    c = c.toUpperCase()
+                capitalize_next = false
+            }
+            out_text += c
         }
         return out_text
     }
@@ -298,6 +317,16 @@ class Helpers {
         }
     
         return s
+    }
+
+    static isCapitalizable(c) {
+        if (c.length > 1)
+            c = c.charAt(1)
+        return (c.toUpperCase() !== c.toLowerCase())
+    }
+
+    static hasWhiteSpace(s) {
+        return /[ \f\n\r\t\v\u00A0\u2028\u2029]/.test(s)
     }
 }
 
