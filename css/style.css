@@ -130,21 +130,10 @@ main#main {
 main#main section {
     height: 100%;
     box-sizing: border-box;
-}
-
-main#main section#converter {
     display: none;
 }
 
-main#main section#converter.show {
-    display: block
-}
-
-main#main section#about {
-    display: none;
-}
-
-main#main section#about.show {
+main#main section.show {
     display: block
 }
 
