@@ -28,6 +28,9 @@
     --default-button-height: 50px;
     --select-head-height: var(--default-button-height);
     --select-buttons-height: 42px;
+
+    --default-normal-font-size: 16px;
+    --default-button-font-size: 14px;
 }
 
 body, html {
@@ -36,6 +39,7 @@ body, html {
 
 body {
     background-color: var(--bg-color);
+    font-size: var(--default-normal-font-size);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -46,6 +50,7 @@ textarea {
 button {
     outline: none;
     border-width: 0;
+    font-size: var(--default-button-font-size);
 }
 
 h1, h2, h3, h4, h5, h6 {
