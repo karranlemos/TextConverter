@@ -213,8 +213,8 @@ class MenuPages {
         this.menuCentralNavbar = document.querySelector('#navbar div.central-navbar')
         if (!this.menuCentralNavbar)
             throw '"#navbar div.central-navbar" doesn\'t exist'
-        var menuButtons = this.menuCentralNavbar.querySelectorAll('button')
-        if (!menuButtons)
+        var menuButtonsCollection = this.menuCentralNavbar.querySelectorAll('button')
+        if (!menuButtonsCollection)
             throw '"#navbar div.central-navbar button" doesn\'t exist'
         this.mobileMenuButton = document.querySelector('#navbar button.menu-button')
         if (!this.mobileMenuButton)
@@ -227,13 +227,16 @@ class MenuPages {
                 this.pageSections[id] = node
         }
 
-        for (let menuButton of menuButtons) {
+        this.menuButtons = {}
+        for (let menuButton of menuButtonsCollection) {
             let pageId = menuButton.getAttribute('data-page-id')
             if (!this.pageSections.hasOwnProperty(pageId))
                 continue
             menuButton.addEventListener('click', function() {
                 this.changePages(pageId)
             }.bind(this))
+
+            this.menuButtons[pageId] = menuButton
         }
 
         var firstPage = Object.keys(this.pageSections)[0];
@@ -248,8 +251,11 @@ class MenuPages {
         if (!this.pageSections.hasOwnProperty(pageId))
             throw 'Page doesn\'t exist'
         
-        if (this.pageSections.hasOwnProperty(this.currentPageId))
+        if (this.pageSections.hasOwnProperty(this.currentPageId)) {
+            this.menuButtons[this.currentPageId].classList.remove('current-page')
             this.pageSections[this.currentPageId].classList.remove('show')
+        }
+        this.menuButtons[pageId].classList.add('current-page')
         this.pageSections[pageId].classList.add('show')
 
         this.currentPageId = pageId

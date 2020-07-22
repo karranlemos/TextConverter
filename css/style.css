@@ -4,6 +4,7 @@
     --bg-color-nav-menu: rgb(35, 35, 35);
     --bg-color-nav-menu-hover: rgb(40, 40, 40);
     --bg-color-nav-menu-focus: rgb(50, 50, 50);
+    --bg-color-nav-menu-current-page: rgb(50, 50, 50);
     --color-nav-menu: white;
 
     --main-bg-color: rgb(245, 245, 245);
@@ -25,6 +26,9 @@
 
     --navbar-height: 60px;
     --content-max-width: 1000px;
+    --default-button-height: 50px;
+    --select-head-height: var(--default-button-height);
+    --select-buttons-height: 42px;
 }
 
 body, html {
@@ -105,6 +109,10 @@ div#navbar nav button:hover {
     background-color: var(--bg-color-nav-menu-hover);
 }
 
+div#navbar nav button.current-page {
+    background-color: var(--bg-color-nav-menu-current-page);
+}
+
 
 
 div.container-converter {
@@ -167,6 +175,7 @@ button.select-head {
     box-sizing: border-box;
     width: 100%;
     padding: 10px;
+    height: var(--select-head-height);
 
     cursor: pointer;
     background-color: var(--bg-color-select-head);
@@ -193,6 +202,10 @@ div.custom-select-container div.select-options {
     top: 100%;
     left: 0;
     right: 0;
+}
+
+div.custom-select-container div.select-options button.select-option {
+    height: var(--select-buttons-height);
 }
 
 div.custom-select-container div.select-options.show {
@@ -244,6 +257,7 @@ button#execute-converter {
     border-width: 0;
     border-radius: 0 0 7px 7px;
     padding: 15px;
+    height: var(--default-button-height);
     
     font-weight: bold;
     cursor: pointer;
