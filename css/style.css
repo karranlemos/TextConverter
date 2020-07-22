@@ -50,7 +50,8 @@ textarea {
 button {
     outline: none;
     border-width: 0;
-    font-size: var(--default-button-font-size);
+    font-size: var(--default-normal-font-size);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
