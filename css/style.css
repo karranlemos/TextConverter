@@ -17,7 +17,6 @@
     --bg-color-select-head: rgb(35, 35, 35);
     --bg-color-option-menu: rgb(50, 50, 50);
     --bg-color-option-menu-hover: rgb(60, 60, 60);
-    --bg-color-option-menu-click: rgb(65, 65, 65);
     --color-option-menu: rgb(255, 255, 255);
     
     --bg-color-footer: rgb(35, 35, 35);
@@ -229,10 +228,6 @@ button.select-option {
 
 button.select-option:hover {
     background-color: var(--bg-color-option-menu-hover)
-}
-
-button.select-option:active {
-    background-color: var(--bg-color-option-menu-click)
 }
 
 textarea.converter-textarea {
