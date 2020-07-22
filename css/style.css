@@ -318,4 +318,9 @@ button#execute-converter:active {
     div#navbar nav button.menu-button.mobile-show::before {
         content: '\2715';
     }
+
+    div.container-converter {
+        max-height: none;
+        grid-template-rows: auto 1fr auto 1fr;
+    }
 }
