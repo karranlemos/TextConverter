@@ -107,7 +107,7 @@ div#navbar nav button {
     background-color: transparent;
     color: var(--color-nav-menu);
     cursor: pointer;
-    font-weight: bold;
+    
 }
 
 div#navbar nav button:hover {
@@ -262,7 +262,7 @@ button#execute-converter {
     padding: 15px;
     height: var(--default-button-height);
     
-    font-weight: bold;
+    
     cursor: pointer;
 }
 
