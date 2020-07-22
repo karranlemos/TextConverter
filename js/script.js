@@ -210,9 +210,15 @@ class MenuPages {
         this.currentPageId = ''
         this.pageSections = {}
 
-        var menuButtons = document.querySelectorAll('#navbar div.central-navbar button')
-        if (!menuButtons)
+        this.menuCentralNavbar = document.querySelector('#navbar div.central-navbar')
+        if (!this.menuCentralNavbar)
             throw '"#navbar div.central-navbar" doesn\'t exist'
+        var menuButtons = this.menuCentralNavbar.querySelectorAll('button')
+        if (!menuButtons)
+            throw '"#navbar div.central-navbar button" doesn\'t exist'
+        this.mobileMenuButton = document.querySelector('#navbar button.menu-button')
+        if (!this.mobileMenuButton)
+        throw '"#navbar button.menu-button" doesn\'t exist'
         var pageSectionsNodes = document.querySelectorAll('main#main>section.page')
         
         for (let node of pageSectionsNodes) {
@@ -232,6 +238,8 @@ class MenuPages {
 
         var firstPage = Object.keys(this.pageSections)[0];
         this.changePages(firstPage)
+
+        this.mobileMenuButton.addEventListener('click', this.toggleMobileMenu.bind(this))
     }
 
     changePages(pageId) {
@@ -245,6 +253,14 @@ class MenuPages {
         this.pageSections[pageId].classList.add('show')
 
         this.currentPageId = pageId
+
+        this.menuCentralNavbar.classList.remove('mobile-show')
+        this.mobileMenuButton.classList.remove('mobile-show')
+    }
+
+    toggleMobileMenu() {
+        this.menuCentralNavbar.classList.toggle('mobile-show')
+        this.mobileMenuButton.classList.toggle('mobile-show')
     }
 }
 
