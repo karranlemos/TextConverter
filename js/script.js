@@ -112,30 +112,30 @@ class TextConverter {
 
 class CustomSelect {
 
-    static errorMessages = {
-        'constructor': 'Invalid format.'
-    }
-
     constructor(container) {
+        this.errorMessages = {
+            'constructor': 'Invalid format.'
+        }
+
         this.container = container
         this.hiddenSelect = container.querySelector('select')
         this.frontSelect = container.querySelector('div.select')
 
         if (!this.container || !this.hiddenSelect || !this.frontSelect)
-            throw CustomSelect.errorMessages['constructor']
+            throw this.errorMessages['constructor']
         
         this.frontHead = this.frontSelect.querySelector('button.select-head')
         this.frontOptions = this.frontSelect.querySelector('div.select-options')
 
         if (!this.frontHead || !this.frontOptions)
-            throw CustomSelect.errorMessages['constructor']
+            throw this.errorMessages['constructor']
 
         this.frontHead.addEventListener('click', this.toggleOptions.bind(this))
 
         this.frontHeadText = this.frontHead.querySelector('span.select-head-text')
         
         if (!this.frontHeadText)
-            throw CustomSelect.errorMessages['constructor']
+            throw this.errorMessages['constructor']
         
         this.hiddenOptionsIndexes = this.extractHiddenOptionsIndexes()
         
