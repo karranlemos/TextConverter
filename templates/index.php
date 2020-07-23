@@ -12,8 +12,13 @@
     <div id="navbar" class="container-parts">
       <nav>
         <div class="central-navbar">
-          <button type="button" data-page-id="converter"><?php echo $lang_codes->translate('Converter'); ?></button>
-          <button type="button" data-page-id="about"><?php echo $lang_codes->translate('About'); ?></button>
+          <div class="page-buttons">
+            <button type="button" data-page-id="converter"><?php echo $lang_codes->translate('Converter'); ?></button>
+            <button type="button" data-page-id="about"><?php echo $lang_codes->translate('About'); ?></button>
+          </div>
+          <div class="settings-buttons">
+            <button type="button" class="languages-button"></button>
+          </div>
         </div>
         <button type="button" class="menu-button"></button>
       </nav>

@@ -90,10 +90,15 @@ div#navbar nav {
 
 div#navbar nav div.central-navbar {
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     
     width: 100%;
     max-width: var(--content-max-width);
+}
+
+div#navbar nav div.central-navbar div.page-buttons {
+    display: flex;
+    justify-content: start;
 }
 
 div#navbar nav button.menu-button {
@@ -107,7 +112,14 @@ div#navbar nav button {
     background-color: transparent;
     color: var(--color-nav-menu);
     cursor: pointer;
-    
+}
+
+div#navbar nav button.languages-button {
+    background-image: url('../images/Globe_icon-white.svg');
+    background-size: 28px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 60px;
 }
 
 div#navbar nav button:hover {
@@ -307,6 +319,9 @@ button#execute-converter:active {
         display: block;
         width: 100%;
         height: 48px;
+    }
+    div#navbar nav div.central-navbar div.page-buttons {
+        display: block;
     }
     div#navbar nav button.menu-button {
         font-size: 24px;

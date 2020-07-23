@@ -232,7 +232,7 @@ class MenuPages {
         this.menuCentralNavbar = document.querySelector('#navbar div.central-navbar')
         if (!this.menuCentralNavbar)
             throw '"#navbar div.central-navbar" doesn\'t exist'
-        var menuButtonsCollection = this.menuCentralNavbar.querySelectorAll('button')
+        var menuButtonsCollection = this.menuCentralNavbar.querySelectorAll('div.page-buttons button')
         if (!menuButtonsCollection)
             throw '"#navbar div.central-navbar button" doesn\'t exist'
         this.mobileMenuButton = document.querySelector('#navbar button.menu-button')
