@@ -2,12 +2,22 @@
   <div class="field-block full-field-block">
     <div id="options-converter" class="custom-select-container">
       <select>
-        <option value="uppercase">Caixa alta</option>
-        <option value="lowercase">Caixa baixa</option>
-        <option value="alternate-case">Alternar caixa</option>
-        <option value="capitalized-text">Capitalizar texto</option>
-        <option value="spaced-text">Texto espaçado</option>
-        <option value="leetspeak">Leetspeak</option>
+        
+        <?php
+        $options = [
+          'uppercase' => 'Uppercase',
+          'lowercase' => 'Lowercase',
+          'alternate-case' => 'Alternate Case',
+          'capitalized-text' => 'Capitalized',
+          'spaced-text' => 'Spaced',
+          'leetspeak' => 'Leetspeak'
+        ];
+
+        foreach ($options as $value => $text) {
+          echo '<option value="'.$value.'">'.$lang_codes->translate($text).'</option>';
+        }
+        ?>
+
       </select>
       <div class="select">
         <button class="select-head">
@@ -21,12 +31,12 @@
     </div>
   </div>
   <div class="field-block">
-    <textarea id="input-converter" class="converter-textarea" placeholder="Entrada."></textarea>
+    <textarea id="input-converter" class="converter-textarea" placeholder="<?php echo $lang_codes->translate('Input'); ?>"></textarea>
   </div>
   <div class="field-block">
-    <textarea id="output-converter" class="converter-textarea" placeholder="Saída." readonly></textarea>
+    <textarea id="output-converter" class="converter-textarea" placeholder="<?php echo $lang_codes->translate('Output'); ?>" readonly></textarea>
   </div>
   <div class="field-block full-field-block execute-converter-block">
-    <button type="button" id="execute-converter">Converter</button>
+    <button type="button" id="execute-converter"><?php echo $lang_codes->translate('Convert'); ?></button>
   </div>
 </div>
