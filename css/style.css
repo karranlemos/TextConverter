@@ -299,7 +299,7 @@ button#execute-converter:active {
 
     div#navbar nav {
         justify-content: end;
-        position: relative;
+        position: fixed;
         overflow: visible;
     }
     div#navbar nav div.central-navbar {
