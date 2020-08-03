@@ -354,6 +354,40 @@ div.modal-content header span.modal-close::before {
 }
 
 
+div#modal-languages div.modal-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+
+div#modal-languages div.modal-body button.language-button {
+    height: 100px;
+    width: 150px;
+    cursor: pointer;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#modal-languages div.modal-body button.language-button:hover {
+    filter: brightness(.85);
+}
+
+div#modal-languages div.modal-body button.language-button:active {
+    filter: brightness(.8);
+}
+
+div#modal-languages div.modal-body button.language-button.lang-pt-br {
+    background-image: url('../images/Flag_of_Brazil.svg');
+}
+
+div#modal-languages div.modal-body button.language-button.lang-en {
+    background-image: url('../images/Flag_of_the_United_States.svg');
+}
+
+
+
 @media only screen and (max-width: 700px) {
     div.field-block {
         grid-column: 1/3;

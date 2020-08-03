@@ -48,8 +48,8 @@
       <header><span class="modal-title"><?=$lang_codes->translate('Choose a Language')?></span><span class="modal-close"></span></header>
       <div class="modal-body">
         <form action="" method="post">
-          <button type="submit" name="site-language" value="pt-br">Português</button>
-          <button type="submit" name="site-language" value="en">English</button>
+          <button type="submit" title="Português" name="site-language" value="pt-br" class="language-button lang-pt-br"></button>
+          <button type="submit" title="English" name="site-language" value="en" class="language-button lang-en"></button>
         </form>
       </div>
     </div>  
