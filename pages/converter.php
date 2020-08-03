@@ -31,12 +31,12 @@
     </div>
   </div>
   <div class="field-block">
-    <textarea id="input-converter" class="converter-textarea" placeholder="<?php echo $lang_codes->translate('Input'); ?>"></textarea>
+    <textarea id="input-converter" class="converter-textarea" placeholder="<?=$lang_codes->translate('Input')?>"></textarea>
   </div>
   <div class="field-block">
-    <textarea id="output-converter" class="converter-textarea" placeholder="<?php echo $lang_codes->translate('Output'); ?>" readonly></textarea>
+    <textarea id="output-converter" class="converter-textarea" placeholder="<?=$lang_codes->translate('Output')?>" readonly></textarea>
   </div>
   <div class="field-block full-field-block execute-converter-block">
-    <button type="button" id="execute-converter"><?php echo $lang_codes->translate('Convert'); ?></button>
+    <button type="button" id="execute-converter"><?=$lang_codes->translate('Convert')?></button>
   </div>
 </div>
