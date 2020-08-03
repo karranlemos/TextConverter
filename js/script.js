@@ -223,7 +223,7 @@ class CustomSelect {
 }
 
 
-class MenuPages {
+class MainMenu {
 
     constructor() {
         this.currentPageId = ''
@@ -231,15 +231,19 @@ class MenuPages {
 
         this.menuCentralNavbar = document.querySelector('#navbar div.central-navbar')
         if (!this.menuCentralNavbar)
-            throw '"#navbar div.central-navbar" doesn\'t exist'
+            throw '#navbar missing div.central-navbar'
 
         var menuButtonsCollection = this.menuCentralNavbar.querySelectorAll('div.page-buttons button')
         if (!menuButtonsCollection)
-            throw '"#navbar div.central-navbar button" doesn\'t exist'
+            throw '#navbar missing div.central-navbar'
 
         this.mobileMenuButton = document.querySelector('#navbar button.menu-button')
         if (!this.mobileMenuButton)
-            throw '"#navbar button.menu-button" doesn\'t exist'
+            throw '#navbar missing button.menu-button'
+        
+        this.languagesButton = document.querySelector('#navbar button.languages-button')
+        if (!this.languagesButton)
+            throw '#navbar missing button.languages-button'
         
         var pageSectionsNodes = document.querySelectorAll('main#main>section.page')
         for (let node of pageSectionsNodes) {
@@ -264,6 +268,15 @@ class MenuPages {
         this.changePages(firstPage)
 
         this.mobileMenuButton.addEventListener('click', this.toggleMobileMenu.bind(this))
+
+        this.languagesButton.addEventListener('click', function() {
+            var modalLanguages = document.getElementById('modal-languages')
+            if (!modalLanguages)
+                return
+            modalLanguages.classList.add('show')
+
+            this.closeMobileMenu()
+        }.bind(this))
     }
 
     changePages(pageId) {
@@ -281,13 +294,63 @@ class MenuPages {
 
         this.currentPageId = pageId
 
-        this.menuCentralNavbar.classList.remove('mobile-show')
-        this.mobileMenuButton.classList.remove('mobile-show')
+        this.closeMobileMenu()        
     }
 
     toggleMobileMenu() {
         this.menuCentralNavbar.classList.toggle('mobile-show')
         this.mobileMenuButton.classList.toggle('mobile-show')
+    }
+
+    closeMobileMenu() {
+        this.menuCentralNavbar.classList.remove('mobile-show')
+        this.mobileMenuButton.classList.remove('mobile-show')
+    }
+}
+
+
+
+class Modal {
+    
+    constructor(modal) {
+        this.modal = modal
+
+        this.content_box = this.modal.querySelector('.modal-content')
+        if (!this.content_box)
+            throw 'No modal-content div'
+        
+        this.close_button = this.content_box.querySelector('header span.modal-close')
+        if (!this.close_button)
+            throw 'No close button'
+        
+        this.modal.addEventListener('click', function(e) {
+            if (e.target === this.modal)
+                this.closeModal()
+        }.bind(this))
+        this.close_button.addEventListener('click', this.closeModal.bind(this))
+    }
+
+    closeModal() {
+        this.modal.classList.remove('show')
+    }
+
+    openModal() {
+        this.modal.classList.add('show')
+    }
+
+
+    static getAllModals() {
+        var modalElements = document.querySelectorAll('div.modal')
+        var modals = []
+        for (let modalElement of modalElements) {
+            try {
+                modals.push(new Modal(modalElement))
+            }
+            catch (err) {
+
+            }
+        }
+        return modals
     }
 }
 
@@ -337,11 +400,13 @@ class Helpers {
 var section = {
     converter: undefined,
     customSelectors: undefined,
-    menuPages: undefined
+    menuPages: undefined,
+    modals: undefined
 }
 
 window.addEventListener('load', function() {
     section.converter = new TextConverter()
     section.customSelectors = CustomSelect.getAllCustomSelect()
-    section.menuPages = new MenuPages();
+    section.menuPages = new MainMenu()
+    section.modals = Modal.getAllModals()
 })

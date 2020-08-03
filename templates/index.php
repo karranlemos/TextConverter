@@ -42,5 +42,12 @@
       <?php echo $lang_codes->translate('Created by %s.', 'Karran Lemos'); ?>
     </footer>
   </div>
+
+  <div id="modal-languages" class="modal">
+    <div class="modal-content">
+      <header><span class="modal-title">Choose a language</span><span class="modal-close"></span></header>
+      <div class="modal-body">adsasdadsasd</div>
+    </div>  
+  </div>
 </body>
 </html>

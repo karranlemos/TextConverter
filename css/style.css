@@ -284,6 +284,76 @@ button#execute-converter:active {
 
 
 
+div.modal {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    background-color: rgba(0, 0, 0, .9);
+    color: white;
+}
+
+div.modal.show {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+div.modal-content {
+    background-color: white;
+    box-sizing: border-box;
+    color: black;
+    min-width: 400px;
+    width: 700px;
+}
+
+div.modal-content header {
+    background-color: rgb(218, 218, 218);
+}
+
+div.modal-content div.modal-body {
+    min-height: 150px;
+    padding: 20px;
+}
+
+div.modal-content header,
+div.modal-content div.modal-body {
+    
+}
+
+div.modal-content header {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.modal-content header span {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+div.modal-content header span.modal-title {
+    flex: 1 0;
+    min-width: 0;
+    overflow: hidden;
+}
+
+div.modal-content header span.modal-close {
+    cursor: pointer;
+    box-sizing: border-box;
+    flex: 0 0;
+}
+
+div.modal-content header span.modal-close::before {
+    content: '\2715';
+}
+
+
 @media only screen and (max-width: 700px) {
     div.field-block {
         grid-column: 1/3;
