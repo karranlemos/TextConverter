@@ -45,8 +45,13 @@
 
   <div id="modal-languages" class="modal">
     <div class="modal-content">
-      <header><span class="modal-title">Choose a language</span><span class="modal-close"></span></header>
-      <div class="modal-body">adsasdadsasd</div>
+      <header><span class="modal-title"><?=$lang_codes->translate('Choose a Language')?></span><span class="modal-close"></span></header>
+      <div class="modal-body">
+        <form action="" method="post">
+          <button type="submit" name="site-language" value="pt-br">Português</button>
+          <button type="submit" name="site-language" value="en">English</button>
+        </form>
+      </div>
     </div>  
   </div>
 </body>

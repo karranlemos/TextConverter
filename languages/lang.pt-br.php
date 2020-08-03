@@ -12,6 +12,7 @@ $lang = [
   'Spaced' => 'Espaçado',
   'Leetspeak' => 'Leetspeak',
   'Input' => 'Entrada',
-  'Output' => 'Saída'
+  'Output' => 'Saída',
+  'Choose a Language' => 'Escolha um Idioma',
 ];
 ?>

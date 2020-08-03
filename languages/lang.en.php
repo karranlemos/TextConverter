@@ -12,6 +12,7 @@ $lang = [
   'Spaced' => '',
   'To Leetspeak' => '',
   'Input' => '',
-  'Output' => ''
+  'Output' => '',
+  'Choose a Language' => '',
 ];
 ?>
