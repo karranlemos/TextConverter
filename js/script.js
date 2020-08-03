@@ -232,14 +232,16 @@ class MenuPages {
         this.menuCentralNavbar = document.querySelector('#navbar div.central-navbar')
         if (!this.menuCentralNavbar)
             throw '"#navbar div.central-navbar" doesn\'t exist'
+
         var menuButtonsCollection = this.menuCentralNavbar.querySelectorAll('div.page-buttons button')
         if (!menuButtonsCollection)
             throw '"#navbar div.central-navbar button" doesn\'t exist'
+
         this.mobileMenuButton = document.querySelector('#navbar button.menu-button')
         if (!this.mobileMenuButton)
-        throw '"#navbar button.menu-button" doesn\'t exist'
-        var pageSectionsNodes = document.querySelectorAll('main#main>section.page')
+            throw '"#navbar button.menu-button" doesn\'t exist'
         
+        var pageSectionsNodes = document.querySelectorAll('main#main>section.page')
         for (let node of pageSectionsNodes) {
             let id = node.id
             if (id !== '')
@@ -334,7 +336,8 @@ class Helpers {
 
 var section = {
     converter: undefined,
-    customSelectors: undefined
+    customSelectors: undefined,
+    menuPages: undefined
 }
 
 window.addEventListener('load', function() {
