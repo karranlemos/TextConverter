@@ -22,6 +22,11 @@
     --bg-color-footer: rgb(35, 35, 35);
     --color-footer: white;
 
+    --bg-color-modal: rgba(0, 0, 0, .9);
+    --bg-color-modal-content: white;
+    --bg-color-modal-header: rgb(218, 218, 218);
+    --color-modal-content: black;
+
 
     --navbar-height: 60px;
     --content-max-width: 1000px;
@@ -294,8 +299,7 @@ div.modal {
     right: 0;
     z-index: 1000;
 
-    background-color: rgba(0, 0, 0, .9);
-    color: white;
+    background-color: var(--bg-color-modal);
 }
 
 div.modal.show {
@@ -306,15 +310,16 @@ div.modal.show {
 }
 
 div.modal-content {
-    background-color: white;
+    background-color: var(--bg-color-modal-content);
+    color: var(--color-modal-content);
+
     box-sizing: border-box;
-    color: black;
     min-width: 300px;
-    width: 700px;
+    max-width: 700px;
 }
 
 div.modal-content header {
-    background-color: rgb(218, 218, 218);
+    background-color: var(--bg-color-modal-header);
 }
 
 div.modal-content div.modal-body {
@@ -365,6 +370,8 @@ div#modal-languages div.modal-body button.language-button {
     height: 100px;
     width: 150px;
     cursor: pointer;
+
+    box-sizing: border-box;
 
     background-repeat: no-repeat;
     background-size: cover;
