@@ -368,6 +368,7 @@ class LanguagesForms {
         for (let button of buttonsCollection) {
             this.buttons[button.value] = button
             button.addEventListener('click', function() {
+                if (!this.buttons[button.value].classList.contains('marked'))
                 this.buttons[button.value].classList.add('new-marked')
             }.bind(this))
         }
