@@ -366,10 +366,19 @@ div#modal-languages div.modal-body {
     align-content: center;
 }
 
+div#modal-languages div.modal-body div.language-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 5px;
+}
+
 div#modal-languages div.modal-body button.language-button {
     height: 100px;
     width: 150px;
     cursor: pointer;
+
+    margin: 5px;
 
     box-sizing: border-box;
 
