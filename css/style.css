@@ -216,11 +216,15 @@ span.select-head-text {
 
 span.select-head-icon {
     position: absolute;
-    right: 10px;
-}
+    top: 0;
+    right: 0;
 
-span.select-head-icon::after {
-    content: '\25BC';
+    min-width: 50px;
+    height: 100%;
+    background-image: url('../images/icons/Down_arrow-white.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 13px;
 }
 
 div.custom-select-container div.select-options {

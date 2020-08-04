@@ -440,7 +440,8 @@ class Helpers {
             '../images/icons/Multiplication_Sign-black.svg',
             '../images/icons/White_check.svg',
             '../images/icons/Hamburger-white.svg',
-            '../images/icons/Globe_icon-white.svg'
+            '../images/icons/Globe_icon-white.svg',
+            '../images/icons/Down_arrow-white.svg',
         ]
         for (var bg_image of bg_images) {
             var imageObj = new Image()
