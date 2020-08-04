@@ -402,10 +402,6 @@ div#modal-languages div.modal-body button.language-button {
     background-size: cover;
 }
 
-div#modal-languages div.modal-body button.language-button.marked {
-    
-}
-
 div#modal-languages div.modal-body button.language-button.marked::after {
     content: '';
     position: absolute;
@@ -438,6 +434,24 @@ div#modal-languages div.modal-body button.language-button.lang-pt-br {
 
 div#modal-languages div.modal-body button.language-button.lang-en {
     background-image: url('../images/flags/Flag_of_the_United_States.svg');
+}
+
+div#modal-languages div.modal-body button.language-button.new-marked::before {
+    content: '';
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+    
+    background-image: url('../images/gifs/loading.gif');
+    background-color: rgba(0, 0, 0, .7);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 

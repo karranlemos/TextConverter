@@ -351,10 +351,41 @@ class Modal {
                 modals.push(new Modal(modalElement))
             }
             catch (err) {
-
+                continue
             }
         }
         return modals
+    }
+}
+
+
+
+class LanguagesForms {
+
+    constructor(formButtonsDiv) {
+        var buttonsCollection = formButtonsDiv.querySelectorAll('button.language-button')
+        this.buttons = {}
+        for (let button of buttonsCollection) {
+            this.buttons[button.value] = button
+            button.addEventListener('click', function() {
+                this.buttons[button.value].classList.add('new-marked')
+            }.bind(this))
+        }
+    }
+    
+
+
+    static getAllLanguageForms() {
+        var formButtonsDivs = document.querySelectorAll('form .language-buttons')
+        var formButtons = []
+        for (let formButtonsDiv of formButtonsDivs) {
+            try {
+                formButtons.push(new LanguagesForms(formButtonsDiv))
+            }
+            catch (err) {
+                continue
+            }
+        }
     }
 }
 
@@ -401,16 +432,12 @@ class Helpers {
 
 
 
-var section = {
-    converter: undefined,
-    customSelectors: undefined,
-    menuPages: undefined,
-    modals: undefined
-}
+var section = {}
 
 window.addEventListener('load', function() {
     section.converter = new TextConverter()
     section.customSelectors = CustomSelect.getAllCustomSelect()
     section.menuPages = new MainMenu()
     section.modals = Modal.getAllModals()
+    section.languageButtons = LanguagesForms.getAllLanguageForms()
 })
