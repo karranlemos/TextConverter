@@ -315,7 +315,11 @@ class Modal {
     constructor(modal) {
         this.modal = modal
 
-        this.content_box = this.modal.querySelector('.modal-content')
+        this.modal_viewpoint = this.modal.querySelector('.modal-viewpoint')
+        if (!this.modal_viewpoint)
+            throw 'No modal-viewpoint div'
+
+        this.content_box = this.modal_viewpoint.querySelector('.modal-content')
         if (!this.content_box)
             throw 'No modal-content div'
         
@@ -324,7 +328,7 @@ class Modal {
             throw 'No close button'
         
         this.modal.addEventListener('click', function(e) {
-            if (e.target === this.modal)
+            if ([this.modal, this.modal_viewpoint].includes(e.target))
                 this.closeModal()
         }.bind(this))
         this.close_button.addEventListener('click', this.closeModal.bind(this))

@@ -305,10 +305,19 @@ div.modal {
 }
 
 div.modal.show {
+    display: block;
+}
+
+div.modal div.modal-viewpoint {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+
+    height: 100vh;
+    width: 100%;
+
+    position: fixed;
 }
 
 div.modal-content {

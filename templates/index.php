@@ -44,34 +44,36 @@
   </div>
 
   <div id="modal-languages" class="modal">
-    <div class="modal-content">
-      <header><span class="modal-title"><?=$lang_codes->translate('Choose a Language')?></span><span class="modal-close"></span></header>
-      <div class="modal-body">
-        <form action="" method="post">
-          <div class="language-buttons">
-
-            <?php
-            $language_buttons_data = [
-              'pt-br' => 'Português',
-              'en' => 'English',
-            ];
-
-            // <button type="submit" name="site-language"
-            //   title="Português" value="pt-br" class="language-button lang-pt-br">
-            // </button>
-            foreach ($language_buttons_data as $lang_code => $lang_text) {
-              $class_marked = ($lang_code === $lang_codes->get_lang_code()) ? 'marked' : '';
-
-              echo '<button type="submit" name="site-language" ';
-              echo 'title="'.$lang_text.'" value="'.$lang_code.'" class="language-button lang-'.$lang_code.' '.$class_marked.'">';
-              echo '</button>';
-            }
-            ?>
-
-          </div>
-        </form>
-      </div>
-    </div>  
+    <div class="modal-viewpoint">
+      <div class="modal-content">
+        <header><span class="modal-title"><?=$lang_codes->translate('Choose a Language')?></span><span class="modal-close"></span></header>
+        <div class="modal-body">
+          <form action="" method="post">
+            <div class="language-buttons">
+  
+              <?php
+              $language_buttons_data = [
+                'pt-br' => 'Português',
+                'en' => 'English',
+              ];
+  
+              // <button type="submit" name="site-language"
+              //   title="Português" value="pt-br" class="language-button lang-pt-br">
+              // </button>
+              foreach ($language_buttons_data as $lang_code => $lang_text) {
+                $class_marked = ($lang_code === $lang_codes->get_lang_code()) ? 'marked' : '';
+  
+                echo '<button type="submit" name="site-language" ';
+                echo 'title="'.$lang_text.'" value="'.$lang_code.'" class="language-button lang-'.$lang_code.' '.$class_marked.'">';
+                echo '</button>';
+              }
+              ?>
+  
+            </div>
+          </form>
+        </div>
+      </div>  
+    </div>
   </div>
 </body>
 </html>
