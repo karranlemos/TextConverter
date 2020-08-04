@@ -354,10 +354,13 @@ div.modal-content header span.modal-close {
     cursor: pointer;
     box-sizing: border-box;
     flex: 0 0;
-}
 
-div.modal-content header span.modal-close::before {
-    content: '\2715';
+    min-width: 50px;
+
+    background-image: url('../images/icons/Multiplication_Sign-black.svg');
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
@@ -472,12 +475,17 @@ div#modal-languages div.modal-body button.language-button.lang-en {
     div#navbar nav button.menu-button {
         font-size: 24px;
         display: inline-block;
+
+        min-width: 50px;
+        background-size: 20px;
+        background-repeat: no-repeat;
+        background-position: center;
+
+        background-image: url('../images/icons/Hamburger-white.svg');
     }
-    div#navbar nav button.menu-button::before {
-        content: '\2630';
-    }
-    div#navbar nav button.menu-button.mobile-show::before {
-        content: '\2715';
+
+    div#navbar nav button.menu-button.mobile-show {
+        background-image: url('../images/icons/Multiplication_Sign-white.svg');
     }
 
     div.container-converter {
