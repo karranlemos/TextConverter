@@ -374,6 +374,8 @@ div#modal-languages div.modal-body div.language-buttons {
 }
 
 div#modal-languages div.modal-body button.language-button {
+    position: relative;
+
     height: 100px;
     width: 150px;
     cursor: pointer;
@@ -384,6 +386,28 @@ div#modal-languages div.modal-body button.language-button {
 
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+div#modal-languages div.modal-body button.language-button.marked {
+    
+}
+
+div#modal-languages div.modal-body button.language-button.marked::after {
+    content: '';
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+
+    background-color: rgba(0, 0, 0, .7);
+    background-image: url('../images/icons/White_check.svg');
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 div#modal-languages div.modal-body button.language-button:hover {
