@@ -429,6 +429,24 @@ class Helpers {
     static hasWhiteSpace(s) {
         return /[ \f\n\r\t\v\u00A0\u2028\u2029]/.test(s)
     }
+
+    static preloadBackgroundImages() {
+        console.log('k')
+        var bg_images = [
+            '../images/flags/Flag_of_the_United_States.svg',
+            '../images/flags/Flag_of_Brazil.svg',
+            '../images/gifs/loading.gif',
+            '../images/icons/Multiplication_Sign-white.svg',
+            '../images/icons/Multiplication_Sign-black.svg',
+            '../images/icons/White_check.svg',
+            '../images/icons/Hamburger-white.svg',
+            '../images/icons/Globe_icon-white.svg'
+        ]
+        for (var bg_image of bg_images) {
+            var imageObj = new Image()
+            imageObj.src = bg_image
+        }
+    }
 }
 
 
@@ -440,5 +458,6 @@ window.addEventListener('load', function() {
     section.customSelectors = CustomSelect.getAllCustomSelect()
     section.menuPages = new MainMenu()
     section.modals = Modal.getAllModals()
-    section.languageButtons = LanguagesForms.getAllLanguageForms()
+    section.languageButtons = LanguagesForms.getAllLanguageForms()        
+    Helpers.preloadBackgroundImages()
 })
