@@ -431,7 +431,6 @@ class Helpers {
     }
 
     static preloadBackgroundImages() {
-        console.log('k')
         var bg_images = [
             '../images/flags/Flag_of_the_United_States.svg',
             '../images/flags/Flag_of_Brazil.svg',
