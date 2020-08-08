@@ -1,3 +1,9 @@
+var CONSTANTS = {
+    NAVBAR_HEIGHT_PX: 60,
+    GRID_GAP_PX: 10,
+    BUTTON_HEIGHT_PX: 50,
+}
+
 class TextConverter {
 
     constructor() {
@@ -11,6 +17,7 @@ class TextConverter {
         
         for (let button of this.buttons) {
             button.addEventListener('click', this.execute_conversion.bind(this))
+            button.addEventListener('click', this.show_output_on_screen.bind(this))
         }
     }
 
@@ -34,6 +41,29 @@ class TextConverter {
         var out_text = commands[mode](in_text)
 
         this.output.value = out_text
+    }
+
+    show_output_on_screen() {
+        const MIN_VISIBLE_OUTPUT_HEIGHT = 160
+        
+        var outputPosition = this.output.getBoundingClientRect()
+        
+        var topVisible = (outputPosition.top >= 0)
+        var bottomVisible = (outputPosition.bottom < window.innerHeight)
+
+        var visible_output_height = window.innerHeight-outputPosition.top
+        var min_real_or_visible_height = Math.min(outputPosition.height, MIN_VISIBLE_OUTPUT_HEIGHT)
+        var enoughVisible = (visible_output_height > min_real_or_visible_height)
+        
+        if (topVisible && (bottomVisible || enoughVisible))
+            return
+        
+        var currentX = window.pageXOffset
+        var newY = this.output.offsetTop
+            - CONSTANTS.NAVBAR_HEIGHT_PX
+            - 2*CONSTANTS.GRID_GAP_PX
+            - CONSTANTS.BUTTON_HEIGHT_PX
+        window.scrollTo(currentX, newY)
     }
 
     convert_uppercase(text) {
