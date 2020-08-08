@@ -4,12 +4,14 @@ class TextConverter {
         this.options = document.querySelector('#options-converter select')
         this.input = document.getElementById('input-converter')
         this.output = document.getElementById('output-converter')
-        this.button = document.getElementById('execute-converter')
+        this.buttons = document.getElementsByClassName('execute-converter')
 
-        if (!this.options || !this.input || !this.output || !this.button)
+        if (!this.options || !this.input || !this.output || this.buttons.length < 1)
             throw 'error getting elements'
         
-        this.button.addEventListener('click', this.execute_conversion.bind(this))
+        for (let button of this.buttons) {
+            button.addEventListener('click', this.execute_conversion.bind(this))
+        }
     }
 
     execute_conversion() {

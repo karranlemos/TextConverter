@@ -33,10 +33,13 @@
   <div class="field-block">
     <textarea id="input-converter" class="converter-textarea" placeholder="<?=$lang_codes->translate('Input')?>"></textarea>
   </div>
+  <div class="field-block full-field-block execute-converter-block mobile-only">
+    <button type="button" class="execute-converter"><?=$lang_codes->translate('Convert')?></button>
+  </div>
   <div class="field-block">
     <textarea id="output-converter" class="converter-textarea" placeholder="<?=$lang_codes->translate('Output')?>" readonly></textarea>
   </div>
-  <div class="field-block full-field-block execute-converter-block">
-    <button type="button" id="execute-converter"><?=$lang_codes->translate('Convert')?></button>
+  <div class="field-block full-field-block execute-converter-block desktop-only">
+    <button type="button" class="execute-converter"><?=$lang_codes->translate('Convert')?></button>
   </div>
 </div>
