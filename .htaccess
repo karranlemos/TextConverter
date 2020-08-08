@@ -1,5 +1,8 @@
 RewriteEngine On
 
+RewriteCond $1 (php|html)
+RewriteRule ^(.*)$ / [R=301,NC,L]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond $1 !^(css|images|js)
