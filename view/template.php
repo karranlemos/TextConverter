@@ -30,7 +30,7 @@
         <?php
         foreach (['converter', 'about'] as $section) {
           echo '<section id="'.$section.'" class="page">';
-          require_once(__ROOT__.'/pages/'.$section.'.php');
+          require_once(__ROOT__.'/view/pages/'.$section.'.php');
           echo '</section>';
         }
         ?>
