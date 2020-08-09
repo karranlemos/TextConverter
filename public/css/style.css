@@ -1,68 +1,38 @@
-:root {
-    --bg-color: rgb(224, 224, 224);
-
-    --bg-color-nav-menu: rgb(35, 35, 35);
-    --bg-color-nav-menu-hover: rgb(40, 40, 40);
-    --bg-color-nav-menu-focus: rgb(50, 50, 50);
-    --bg-color-nav-menu-current-page: rgb(50, 50, 50);
-    --color-nav-menu: white;
-
-    --main-bg-color: rgb(245, 245, 245);
-
-    --textarea-bg-color: rgb(225, 225, 225);
-    --textarea-bg-color-focus: rgb(215, 215, 215);
-    
-    --execute-button-bg-color: rgb(0, 60, 0);
-    --execute-button-bg-color-active: rgb(0, 40, 0);
-    --bg-color-select-head: rgb(35, 35, 35);
-    --bg-color-option-menu: rgb(50, 50, 50);
-    --bg-color-option-menu-hover: rgb(60, 60, 60);
-    --color-option-menu: rgb(255, 255, 255);
-    
-    --bg-color-footer: rgb(35, 35, 35);
-    --color-footer: white;
-
-    --bg-color-modal: rgba(0, 0, 0, .9);
-    --bg-color-modal-content: white;
-    --bg-color-modal-header: rgb(218, 218, 218);
-    --color-modal-content: black;
-
-    --grid-gap-default: 10px;
-    --navbar-height: 60px;
-    --content-max-width: 1000px;
-    --default-button-height: 50px;
-    --select-head-height: var(--default-button-height);
-    --select-buttons-height: 42px;
-
-    --default-normal-font-size: 16px;
-    --default-button-font-size: 14px;
-}
+@import 'fonts.css';
+@import 'vars.css';
 
 body, html {
     margin: 0;
+}
+
+body, textarea, button {
+    font-family: 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     position: relative;
 
     background-color: var(--bg-color);
+    color: var(--color);
     font-size: var(--default-normal-font-size);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-textarea {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 button {
     outline: none;
     border-width: 0;
     font-size: var(--default-normal-font-size);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin: 0;
+    margin: 10px 0 20px 0;
+}
+
+h1 {
+    font-size: 32px !important;
+}
+
+p {
+    font-size: var(--default-paragraph-font-size);
 }
 
 div.mobile-only {
