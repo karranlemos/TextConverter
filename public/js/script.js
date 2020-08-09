@@ -4,6 +4,8 @@ var CONSTANTS = {
     BUTTON_HEIGHT_PX: 50,
 }
 
+// fromServer = {} sent from the backend
+
 class TextConverter {
 
     constructor() {
@@ -296,8 +298,7 @@ class MainMenu {
             this.menuButtons[pageId] = menuButton
         }
 
-        var firstPage = Object.keys(this.pageSections)[0];
-        this.changePages(firstPage)
+        this.chooseDefaultPage()
 
         this.mobileMenuButton.addEventListener('click', this.toggleMobileMenu.bind(this))
 
@@ -309,6 +310,10 @@ class MainMenu {
 
             this.closeMobileMenu()
         }.bind(this))
+    }
+
+    chooseDefaultPage() {
+        this.changePages(fromServer.routesSections[location.pathname] ?? fromServer.routesSections['/'])
     }
 
     changePages(pageId) {
@@ -326,7 +331,10 @@ class MainMenu {
 
         this.currentPageId = pageId
 
-        this.closeMobileMenu()        
+        this.closeMobileMenu()
+        
+        if (fromServer.sectionsRoutes[pageId])
+            window.history.pushState('', '', fromServer.sectionsRoutes[pageId])
     }
 
     toggleMobileMenu() {
