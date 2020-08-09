@@ -10,7 +10,6 @@ const ROUTES = [
   '/about/'
 ];
 $route = $_SERVER['REQUEST_URI'];
-$route .= (substr(rtrim($route), -1) !== '/') ? '/' : '';
 if (!in_array($route, ROUTES)) {
   header('Location: /', true, 404);
   echo '404';
