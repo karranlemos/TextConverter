@@ -1,6 +1,6 @@
 <?php
 $lang = [
-  'Text Conversor' => '',
+  'Text Converter' => '',
   'Converter' => '',
   'About' => '',
   'Created by %s.' => '',

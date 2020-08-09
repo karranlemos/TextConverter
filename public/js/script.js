@@ -464,15 +464,15 @@ class Helpers {
 
     static preloadBackgroundImages() {
         var bg_images = [
-            '../images/flags/Flag_of_the_United_States.svg',
-            '../images/flags/Flag_of_Brazil.svg',
-            '../images/gifs/loading.gif',
-            '../images/icons/Multiplication_Sign-white.svg',
-            '../images/icons/Multiplication_Sign-black.svg',
-            '../images/icons/White_check.svg',
-            '../images/icons/Hamburger-white.svg',
-            '../images/icons/Globe_icon-white.svg',
-            '../images/icons/Down_arrow-white.svg',
+            '/public/images/flags/Flag_of_the_United_States.svg',
+            '/public/images/flags/Flag_of_Brazil.svg',
+            '/public/images/gifs/loading.gif',
+            '/public/images/icons/Multiplication_Sign-white.svg',
+            '/public/images/icons/Multiplication_Sign-black.svg',
+            '/public/images/icons/White_check.svg',
+            '/public/images/icons/Hamburger-white.svg',
+            '/public/images/icons/Globe_icon-white.svg',
+            '/public/images/icons/Down_arrow-white.svg',
         ]
         for (var bg_image of bg_images) {
             var imageObj = new Image()
