@@ -285,7 +285,7 @@ class MainMenu {
             if (id !== '')
                 this.pageSections[id] = node
         }
-
+    
         this.menuButtons = {}
         for (let menuButton of menuButtonsCollection) {
             let pageId = menuButton.getAttribute('data-page-id')
@@ -334,7 +334,7 @@ class MainMenu {
         this.closeMobileMenu()
         
         if (fromServer.sectionsRoutes[pageId])
-            window.history.pushState('', '', fromServer.sectionsRoutes[pageId])
+            window.history.pushState('', '', fromServer.sectionsRoutes[pageId]+location.search)
     }
 
     toggleMobileMenu() {
