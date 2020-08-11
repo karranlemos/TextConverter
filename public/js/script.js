@@ -313,7 +313,11 @@ class MainMenu {
     }
 
     chooseDefaultPage() {
-        this.changePages(fromServer.routesSections[location.pathname] ?? fromServer.routesSections['/'])
+        if (fromServer.routesSections.hasOwnProperty(location.pathname))
+            var page = fromServer.routesSections[location.pathname]
+        else
+            var page = fromServer.routesSections['/']
+        this.changePages(page)
     }
 
     changePages(pageId) {
