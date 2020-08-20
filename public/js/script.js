@@ -497,7 +497,7 @@ class Helpers {
 
 var section = {}
 
-window.addEventListener('load', function() {
+document.addEventListener('DOMContentLoaded', function() {
     section.converter = new TextConverter()
     section.customSelectors = CustomSelect.getAllCustomSelect()
     section.menuPages = new MainMenu()
